@@ -16,11 +16,17 @@ get '/help' do
     erb :help
   end
 
- post '/list_clothing' do
-   pack=params[:clothes]
-   @answer=snappack(pack)
+ post '/results' do
+   event=params[:event]
+   gender=params[:gender]
+   days=params[:days]
+   weather=params[:weather]
+   laundry=params[:laundry]
+   @answer=snappack(event.to_s, gender.to_s, days.to_i, weather.to_s, laundry.to_s)
    erb :results
   end
+  
+  
   
   
 end
